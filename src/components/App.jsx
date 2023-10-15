@@ -1,54 +1,56 @@
 import React from 'react';
 
-import { Body, Placeholder } from './App.module';
-import toast from 'react-hot-toast';
-import { PhoneBook } from './phoneBook/phoneBook';
-import { Contacts } from './contacts/contacts';
-import { Filter } from './filter/filter';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from '../redux/contacts/operations';
-import Loader from './loader/loader';
-import {
-  selectError,
-  selectContactsItems,
-  selectIsLoading,
-} from '../redux/contacts/selectors';
 import { useEffect } from 'react';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout';
+import { useAuth } from '../hooks/useAuth';
+import { refreshUser } from '../redux/auth/operations';
+import { Loader } from './loader/loader';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { useDispatch } from 'react-redux';
+
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(selectContactsItems);
-
-  const isLoading = useSelector(selectIsLoading);
-
-  const error = useSelector(selectError);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (error === 'ERR_BAD_REQUEST') {
-      toast.error('There are some problems! Try again later.');
-      return;
-    }
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
-
-  return (
-    <Body>
-      {isLoading && <Loader />}
-      <PhoneBook />
-
-      {!!contacts.length ? (
-        <Filter />
-      ) : (
-        <Placeholder>Your phonebook is empty. Add first contact!</Placeholder>
-      )}
-      {isLoading || (!!contacts.length && <Contacts />)}
-    </Body>
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+      </Route>
+    </Routes>
   );
 };
