@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { useAuth } from '../hooks/useAuth';
 import { refreshUser } from '../redux/auth/operations';
-import { Loader } from './loader/loader';
+import  Loader  from './loader/loader';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { useDispatch } from 'react-redux';
