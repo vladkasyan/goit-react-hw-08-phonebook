@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const boxListStyle = {
+  width: '100%',
+  mt: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+};
+
 export const Body = styled.div`
   background: linear-gradient(
     90deg,

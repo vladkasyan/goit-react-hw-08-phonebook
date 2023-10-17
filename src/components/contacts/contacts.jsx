@@ -1,9 +1,10 @@
 import React from 'react';
-import { List, Listitem, Listbutton } from './contacts.module';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from '../../redux/filter/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
 import { selectContactsItems } from '../../redux/contacts/selectors';
+import { List, ListItem, ListItemButton } from '@mui/material';
 
 export const Contacts = () => {
   const contacts = useSelector(selectContactsItems);
@@ -25,19 +26,19 @@ export const Contacts = () => {
   return (
     <List>
       {VisibleContacts.map(contact => (
-        <Listitem key={contact.id}>
+        <ListItem key={contact.id}>
           {contact.name + ' : ' + contact.number}
 
           {
-            <Listbutton
+            <ListItemButton
               type="button"
               name="delete"
               onClick={() => handleDelete(contact.id)}
             >
               delete
-            </Listbutton>
+            </ListItemButton>
           }
-        </Listitem>
+        </ListItem>
       ))}
     </List>
   );

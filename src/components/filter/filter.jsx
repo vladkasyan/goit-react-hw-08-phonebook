@@ -1,9 +1,11 @@
 import React from 'react';
-import { Label, Input, Box, Title } from './filter.module';
+import { Avatar, TextField, Box } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from '../../redux/filter/selectors';
 import { setFilter } from '../../redux/filter/filtersSlice';
 import { selectContactsItems } from '../../redux/contacts/selectors';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import { boxFilterStyle } from './styledFilter';
 
 export const Filter = () => {
   const filters = useSelector(getFilter);
@@ -17,17 +19,21 @@ export const Filter = () => {
   };
 
   return (
-    <Box>
-      <Title>Contacts</Title>
-      <Label>
-        Find contacts by name
-        <Input
-          type="text"
-          value={filters}
-          onChange={filterChange}
-          disabled={contacts.length === 0}
-        />
-      </Label>
+    <Box component="div" sx={boxFilterStyle}>
+      <Avatar sx={avatarStyle}>
+        <PersonSearchIcon />
+      </Avatar>
+      <TextField
+        sx={{
+          width: 324,
+          bgcolor: 'rgba(208, 224, 241, 0.822)',
+        }}
+        margin="normal"
+        type="text"
+        value={filters}
+        onChange={filterChange}
+        disabled={contacts.length === 0}
+      />
     </Box>
   );
 };

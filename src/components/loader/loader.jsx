@@ -1,24 +1,37 @@
-import { LineWave } from 'react-loader-spinner';
+import { LineWave, Hourglass } from 'react-loader-spinner';
+import { Box } from '@mui/material';
 
-import { StyledLoader } from './loader.module';
+import { boxLoaderStyle } from './styledLoader';
 
-const Loader = () => {
+export const Loader = () => {
   return (
-    <StyledLoader>
-      <LineWave
-        height="100"
-        width="100"
-        color="#672088"
-        ariaLabel="line-wave"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-        firstLineColor=""
-        middleLineColor=""
-        lastLineColor=""
-      />
-    </StyledLoader>
+    <Box sx={boxLoaderStyle}>
+      <StyledLoader>
+        <LineWave
+          height="100"
+          width="100"
+          color="#672088"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </StyledLoader>
+    </Box>
   );
 };
 
-export default Loader;
+export const LoadAdd = () => (
+  <Hourglass
+    visible={true}
+    height="30"
+    width="30"
+    ariaLabel="hourglass-loading"
+    wrapperStyle={{}}
+    wrapperClass=""
+    colors={['#ffffff', '#d4d6da']}
+  />
+);

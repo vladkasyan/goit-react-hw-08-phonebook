@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { useAuth } from '../hooks/useAuth';
 import { refreshUser } from '../redux/auth/operations';
-import  Loader  from './loader/loader';
+import { Loader } from './loader/loader';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
-
+const HomePage = lazy(() => import('../pages/Home'));
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -29,6 +29,7 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
         <Route
           path="/register"
           element={

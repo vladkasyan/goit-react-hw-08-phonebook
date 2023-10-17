@@ -2,17 +2,21 @@ import { Navigation } from '../navigation/navigation';
 import { UserMenu } from '../userMenu/userMenu';
 import { AuthNav } from '../authNav/authNav';
 import { useAuth } from '../../hooks/useAuth';
+import { AppBar, Toolbar } from '@mui/material';
 
-
-const AppBar = () => {
+const MyAppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <header>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </header>
+    <AppBar>
+      <Toolbar
+        sx={{ display: 'flex', fontSize: 18, justifyContent: 'space-between' }}
+      >
+        <Navigation />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </Toolbar>
+    </AppBar>
   );
 };
 
-export default AppBar
+export default MyAppBar;

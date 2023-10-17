@@ -1,10 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { Toolbar } from '@mui/material';
+
+import { StyledNavLink, toolbarStyle } from './authNavStyled';
 
 export const AuthNav = () => {
   return (
-    <div>
-      <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Log In</NavLink>
-    </div>
+    <Toolbar sx={toolbarStyle}>
+      <StyledNavLink to="/register">Register</StyledNavLink>
+      <StyledNavLink to="/login">Log In</StyledNavLink>
+    </Toolbar>
   );
 };
