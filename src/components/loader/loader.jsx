@@ -6,11 +6,10 @@ import { boxLoaderStyle } from './styledLoader';
 export const Loader = () => {
   return (
     <Box sx={boxLoaderStyle}>
-      <StyledLoader>
         <LineWave
           height="100"
           width="100"
-          color="#672088"
+          color="#c2811f"
           ariaLabel="line-wave"
           wrapperStyle={{}}
           wrapperClass=""
@@ -19,7 +18,6 @@ export const Loader = () => {
           middleLineColor=""
           lastLineColor=""
         />
-      </StyledLoader>
     </Box>
   );
 };

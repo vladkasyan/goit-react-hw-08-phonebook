@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { avatarStyle, boxFormStyle } from '../../pages/stylePages';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,6 @@ export const LoginForm = () => {
             label="Email Address"
             autoFocus
           />
-          Password
           <TextField
             type="password"
             name="password"

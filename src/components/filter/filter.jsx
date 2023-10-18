@@ -6,6 +6,8 @@ import { setFilter } from '../../redux/filter/filtersSlice';
 import { selectContactsItems } from '../../redux/contacts/selectors';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { boxFilterStyle } from './styledFilter';
+import { avatarStyle } from '../../pages/stylePages';
+
 
 export const Filter = () => {
   const filters = useSelector(getFilter);
@@ -26,7 +28,8 @@ export const Filter = () => {
       <TextField
         sx={{
           width: 324,
-          bgcolor: 'rgba(208, 224, 241, 0.822)',
+          bgcolor: 'trasnperent',
+          backdropFilter: 'blur(2px)',
         }}
         margin="normal"
         type="text"

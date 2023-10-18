@@ -3,8 +3,9 @@ import { Paper, Typography, Box, Button } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectUser } from '../redux/auth/selectors';
 
-import hero from '../components/images/hero.png';
+import hero from '../components/images/hero2.jpg';
 import { boxMainStyle, paperMainStyle } from './stylePages';
+import { StyledNavLink } from '../components/authNav/authNavStyled';
 
 export default function HomePage() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -18,7 +19,7 @@ export default function HomePage() {
             <Typography
               component="h1"
               variant="h3"
-              color="inherit"
+              sx={{color: '#966924'}}
               gutterBottom
             >
               Hi, {user.name}! <br />
