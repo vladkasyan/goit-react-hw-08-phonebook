@@ -5,6 +5,7 @@ import { getFilter } from '../../redux/filter/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
 import { selectContactsItems } from '../../redux/contacts/selectors';
 import { List, ListItem, ListItemButton } from '@mui/material';
+import { boxListStyle } from './styleContacts';
 
 export const Contacts = () => {
   const contacts = useSelector(selectContactsItems);
@@ -26,7 +27,7 @@ export const Contacts = () => {
   return (
     <List>
       {VisibleContacts.map(contact => (
-        <ListItem key={contact.id}>
+        <ListItem key={contact.id} sx={boxListStyle}>
           {contact.name + ' : ' + contact.number}
 
           {

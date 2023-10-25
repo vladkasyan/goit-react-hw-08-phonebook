@@ -33,7 +33,7 @@ export const PhoneBook = () => {
 
   useEffect(() => {
     setAdd(false);
-  }, [phoneBook]);
+  }, [contacts]);
 
   const submitForm = event => {
     event.preventDefault();

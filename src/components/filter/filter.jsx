@@ -6,6 +6,7 @@ import { setFilter } from '../../redux/filter/filtersSlice';
 import { selectContactsItems } from '../../redux/contacts/selectors';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { boxFilterStyle } from './styledFilter';
+import { avatarStyle } from '../../pages/stylePages';
 
 export const Filter = () => {
   const filters = useSelector(getFilter);

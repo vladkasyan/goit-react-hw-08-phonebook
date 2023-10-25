@@ -5,14 +5,13 @@ import { Filter } from '../components/filter/filter';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from '../redux/contacts/operations';
 import { Loader } from '../components/loader/loader';
-boxS;
 import {
   selectError,
   selectContactsItems,
   selectIsLoading,
 } from '../redux/contacts/selectors';
 import { useEffect } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, CssBaseline, Typography } from '@mui/material';
 import { boxStyle } from './stylePages';
 
 export default function Contactss() {
@@ -39,7 +38,8 @@ export default function Contactss() {
   }, [error]);
 
   return (
-    <Body>
+    <Box>
+      <CssBaseline />
       {isLoading && <Loader />}
       <PhoneBook />
       {!!contacts.length ? (
@@ -52,6 +52,6 @@ export default function Contactss() {
         </Box>
       )}
       {isLoading || (!!contacts.length && <Contacts />)}
-    </Body>
+    </Box>
   );
 }

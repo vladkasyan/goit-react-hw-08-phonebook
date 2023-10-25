@@ -5,6 +5,7 @@ import { selectIsLoggedIn, selectUser } from '../redux/auth/selectors';
 
 import hero from '../components/images/hero.png';
 import { boxMainStyle, paperMainStyle } from './stylePages';
+import { StyledNavLink } from '../components/authNav/authNavStyled';
 
 export default function HomePage() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
