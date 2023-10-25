@@ -26,20 +26,31 @@ export const Contacts = () => {
   return (
     <List>
       {VisibleContacts.map(contact => (
-        <ListItem key={contact.id} sx={boxListStyle}>
-          {contact.name + ' : ' + contact.number}
-        <ListItem key={contact.id} >
+        <ListItem key={contact.id}>
+          <Typography
+            sx={{
+              border: '1px solid black',
+              p: 1,
+              borderRadius: 3,
+            }}
+          >
+            {contact.name + ' : ' + contact.number}
+          </Typography>
 
-          
+          {
             <ListItemButton
               type="button"
+              name="delete"
               onClick={() => handleDelete(contact.id)}
-              sx={{bgcolor: "#c2811f", borderRadius: 3, ml: 2,
-            }}
+              sx={{
+                bgcolor: '#c2811f',
+                borderRadius: 3,
+                ml: 2,
+              }}
             >
               delete
             </ListItemButton>
-          
+          }
         </ListItem>
       ))}
     </List>
