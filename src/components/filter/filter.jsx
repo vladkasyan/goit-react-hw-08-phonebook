@@ -27,7 +27,8 @@ export const Filter = () => {
       <TextField
         sx={{
           width: 324,
-          bgcolor: 'rgba(208, 224, 241, 0.822)',
+          bgcolor: 'trasnperent',
+          backdropFilter: 'blur(2px)',
         }}
         margin="normal"
         type="text"

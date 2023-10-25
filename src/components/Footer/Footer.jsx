@@ -13,7 +13,7 @@ const Footer = () => {
         >
           {'Copyright © '}
           <Link color="inherit" href="#">
-            Olena Iankovska
+            Vladyslav Kasyan
           </Link>{' '}
           {new Date().getFullYear()}
           {'.'}

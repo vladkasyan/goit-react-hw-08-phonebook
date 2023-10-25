@@ -52,7 +52,6 @@ export const LoginForm = () => {
             label="Email Address"
             autoFocus
           />
-          Password
           <TextField
             type="password"
             name="password"

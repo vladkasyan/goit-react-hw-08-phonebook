@@ -56,14 +56,14 @@ export const PhoneBook = () => {
       <Avatar sx={avatarStyle}>
         <ContactsIcon />
       </Avatar>
-      <Typography component="h1" variant="h5">
+      <Typography component="h1" variant="h5" sx={{color: '#e6b367'}}>
         Add Contact
       </Typography>
       <Box component="form" onSubmit={submitForm} sx={{ mt: 1 }}>
         <Toaster />
 
         <TextField
-          sx={{ backgroundColor: 'rgba(208, 224, 241, 0.822)' }}
+          sx={{ backgroundColor: 'trasnperent' }}
           label="Name"
           margin="normal"
           fullWidth
@@ -74,8 +74,8 @@ export const PhoneBook = () => {
         />
 
         <TextField
-          sx={{ backgroundColor: 'rgba(208, 224, 241, 0.822)' }}
-          label="Name"
+          sx={{ backgroundColor: 'trasnperent'  }}
+          label="Number"
           margin="normal"
           fullWidth
           type="tel"
